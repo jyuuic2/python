@@ -22,7 +22,7 @@ while c:
             p=input('For PI, How many decimal places would you like?')
             c=1
     else:
-        if int(p)>50 or int(p)<0:
+        if int(p)>l or int(p)<0:
             print('Number out of range. Enter 0 to ' + str(l) + ' only. Press q anytime to exit.')
             p=input('For PI, How many decimal places would you like?')
         else:
