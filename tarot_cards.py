@@ -16,8 +16,8 @@ In another word:
 So, while the magic embraces you,
         embrace the magic.
     Else,
-        move on,
-        find magic elsewhere...
+        move on, give it a try another day,
+        or just find magic elsewhere...
 Written by Jay Yu at jyuuic2@gmail.com
 """
 
@@ -41,8 +41,8 @@ In another word:
 So, while the magic embraces you,
         embrace the magic.
     Else,
-        move on,
-        find magic elsewhere...'''
+        move on, give it a try another day,
+        or just find magic elsewhere...'''
 
 print(preface)
 
@@ -263,19 +263,19 @@ while c:
         p2 = ''.join(str(ord(p11)) for p11 in p1)  # convert string to ascii, unique
         p3 = int(p2)  # convert ascii to int, unique
         p4 = random.randint(1, p3)  # generate a random number within the range
-        p_b = (p4 % 156) + 1  # generate a number between 1 and 156 from it, as base card, can be reused in deck
-        p_p = (random.randint(1, p3) % 156) + 1  # past card, both positions, can not be reused in deck
-        p_c = (random.randint(1, p3) % 156) + 1  # current/present card, both positions, can not be reused in deck
-        while p_c == p_p or p_c == (p_p + 1) or (p_c + 1) == p_p:
-            p_c = (random.randint(1, p3) % 156) + 1
-        p_f = (random.randint(1, p3) % 156) + 1  # future card, end
-        while p_f == p_c or p_f == (p_c + 1) or (p_f + 1) == p_c or p_f == p_p or p_f == (p_p + 1) or (p_f + 1) == p_p:
-            p_f = (random.randint(1, p3) % 156) + 1
-        print('Base (shadow) card: ' + deck[p_b])
-        print('The Past: ' + deck[p_p])
-        print('The Present: ' + deck[p_c])
-        print('The Future: ' + deck[p_f])
-        g = input('Very neat..., right? Press y to run it again. Press n or q to exit.')
+        pb = (p4 % 156) + 1  # generate a number between 1 and 156 from it, as base card, can be reused in deck
+        pp = (random.randint(1, p3) % 156) + 1  # past card, both positions, can not be reused in deck
+        pc = (random.randint(1, p3) % 156) + 1  # current/present card, both positions, can not be reused in deck
+        while pc == pp or (max(pc, pp) % 2 == 0 and pc == (pp - 1) or (pc - 1) == pp):
+            pc = (random.randint(1, p3) % 156) + 1
+        pf = (random.randint(1, p3) % 156) + 1  # future card, end
+        while pf == pc or (max(pc, pf) % 2 == 0 and pf == (pc - 1) or (pf - 1) == pc) or pf == pp or (max(pp, pf) % 2 == 0 and pf == (pp - 1) or (pf - 1) == pp):
+            pf = (random.randint(1, p3) % 156) + 1
+        print('Base (shadow) card: ' + deck[pb])
+        print('The Past: ' + deck[pp])
+        print('The Present: ' + deck[pc])
+        print('The Future: ' + deck[pf])
+        g = input('Pretty neat..., right? Press y to run it again. Press n or q to exit.')
         if g == 'y' or g == 'Y':
             c = 1
             q = input('What do you want to know? (Press q to exit)')
