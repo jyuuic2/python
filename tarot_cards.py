@@ -268,12 +268,17 @@ while c:
         pc = (random.randint(1, p3) % 156) + 1  # current/present card, both positions, can not be reused in deck
         # while pc == pp or (max(pc, pp) % 2 == 0 and pc == (pp - 1) or (pc - 1) == pp):
         while ((pp + 1) // 2) == ((pc + 1) // 2):  # present card = past card
+            print('The Present card (' + deck[pc] + ') same as the Past card (' + deck[pp] + ')')
+            print('So, re-drawing the Present card')
             pc = (random.randint(1, p3) % 156) + 1
         pf = (random.randint(1, p3) % 156) + 1  # future card, end
         # while pf == pc or (max(pc, pf) % 2 == 0 and pf == (pc - 1) or (pf - 1) == pc)
         # or pf == pp or (max(pp, pf) % 2 == 0 and pf == (pp - 1) or (pf - 1) == pp):
         while ((pf + 1) // 2) == ((pp + 1) // 2) or ((pf + 1) // 2) == ((pc + 1) // 2):
             # future card = past or future = present
+            print('The Future card (' + deck[pf] + ') sam as the Past card (' + deck[pp] + ')')
+            print('Or, the Future card (' + deck[pf] + ') same as the Present card (' + deck[pc] + ')')
+            print('So, re-drawing the Future card')
             pf = (random.randint(1, p3) % 156) + 1
         print('Base (shadow) card: ' + deck[pb])
         print('The Past: ' + deck[pp])
