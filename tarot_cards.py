@@ -263,13 +263,13 @@ while c:
         p2 = ''.join(str(ord(p11)) for p11 in p1)  # convert string to ascii, unique
         p3 = int(p2)  # convert ascii to int, unique
         p4 = random.randint(1, p3)  # generate a random number within the range
-        p_b = (p4 % 156) + 1  # generate a number between 1 and 156 from it, as base card, it can be reused in deck
-        p_p = (random.randint(1, p3) % 156) + 1  # past card, can not be reused in deck
-        p_c = (random.randint(1, p3) % 156) + 1  # current/present card, can not be reused in deck
-        while p_c == p_p:
+        p_b = (p4 % 156) + 1  # generate a number between 1 and 156 from it, as base card, can be reused in deck
+        p_p = (random.randint(1, p3) % 156) + 1  # past card, both positions, can not be reused in deck
+        p_c = (random.randint(1, p3) % 156) + 1  # current/present card, both positions, can not be reused in deck
+        while p_c == p_p or p_c == (p_p + 1) or (p_c + 1) == p_p:
             p_c = (random.randint(1, p3) % 156) + 1
         p_f = (random.randint(1, p3) % 156) + 1  # future card, end
-        while p_f == p_c or p_f == p_p:
+        while p_f == p_c or p_f == (p_c + 1) or (p_f + 1) == p_c or p_f == p_p or p_f == (p_p + 1) or (p_f + 1) == p_p:
             p_f = (random.randint(1, p3) % 156) + 1
         print('Base (shadow) card: ' + deck[p_b])
         print('The Past: ' + deck[p_p])
