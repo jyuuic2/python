@@ -14,7 +14,7 @@ while c:
     try:
         a=int(p)
     except ValueError:
-        if p=='q':
+        if p=='q' or p=='Q':
             print('You pressed q to exit. Good bye! See you next time~')
             break
         else:
