@@ -276,7 +276,7 @@ while c:
         # or pf == pp or (max(pp, pf) % 2 == 0 and pf == (pp - 1) or (pf - 1) == pp):
         while ((pf + 1) // 2) == ((pp + 1) // 2) or ((pf + 1) // 2) == ((pc + 1) // 2):
             # future card = past or future = present
-            print('The Future card (' + deck[pf] + ') sam as the Past card (' + deck[pp] + ')')
+            print('The Future card (' + deck[pf] + ') same as the Past card (' + deck[pp] + ')')
             print('Or, the Future card (' + deck[pf] + ') same as the Present card (' + deck[pc] + ')')
             print('So, re-drawing the Future card')
             pf = (random.randint(1, p3) % 156) + 1
